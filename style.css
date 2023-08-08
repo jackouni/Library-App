@@ -72,6 +72,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 25px;
     height: 100%;
     width: 100%;
 }
@@ -83,15 +84,17 @@ main {
 
 #book-shelf {
     display: grid;
-    width: max(50%, 400px);
-    height: 50%;
+    grid-template-rows: 20px 1fr 20px 1fr 20px ;
+    width: max(80%, 400px);
+    height: 75%;
+    background-color: rgba(160, 113, 39, 0.16);
     border: solid black 4px;
 }
 
-#stats {
-    width: max(70%, 400px);
-    height: 20%;
-    border: solid black 4px;
+.book-card {
+    width: max(20px, 10%);
+    height: 45%;
+    background-color: rgb(215, 215, 215);
 }
 
 
