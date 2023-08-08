@@ -12,6 +12,22 @@
         <h1>Your Library</h1>
         <button id="add-book">Add Book</button>
         <div id="book-shelf"></div>
+        <form action="#" method="post">
+            <label for="title"><b>Title:</b></label>
+            <input type="text" name="title" id="title">
+            <label for="author"><b>Author:</b></label>
+            <input type="text" name="title" id="title">
+            <label for="pages"><b>Number of Pages:</b></label>
+            <input type="number" name="pages" id="pages" min="1">
+            
+            <div id="read-section"><b> Read? :</b>
+                <input type="radio" id="read-true" name="read-or-not" value="True">
+                <label for="read-true">True</label>
+                <input type="radio" id="read-false" name="read-or-not" value="False" checked>
+                <label for="read-false">False</label>
+            </div>
+            <button type="submit">Add to List</button>
+        </form>
     </main>
 </body>
 </html>

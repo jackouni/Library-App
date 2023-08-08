@@ -97,12 +97,28 @@ main {
 .book-card {
     display: flex;
     flex-direction: column;
+    gap: 10px;
     border: solid black 2px;
     background-color: rgb(215, 215, 215);
 }
 
 .book-titles {
     align-self: center;
+    margin-bottom: 10%;
+}
+
+form {
+    display: flex;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    width: 40%;
+    height: fit-content;
+    background-color: rgb(225, 225, 225);
+    position: absolute;
+    top: 15%;
+    border: double black 5px ;
 }
 
 
