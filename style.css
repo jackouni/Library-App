@@ -84,7 +84,7 @@ main {
 
 #book-shelf {
     display: grid;
-    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-columns: repeat(4, 1fr) ;
     grid-template-rows: 1fr 1fr;
     width: max(100%, 500px);
     padding: 10px;
@@ -97,6 +97,7 @@ main {
 .book-card {
     display: flex;
     flex-direction: column;
+    padding: 10px;
     gap: 10px;
     border: solid black 2px;
     background-color: rgb(215, 215, 215);

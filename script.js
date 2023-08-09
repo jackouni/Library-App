@@ -1,5 +1,5 @@
-
-const addBtn = document.getElementById('add-book')
+const addBookForm = document.querySelector('form')
+const addBookBtn = document.getElementById('add-book')
 const bookShelf = document.getElementById('book-shelf')
 
 let book1 = {
@@ -63,7 +63,7 @@ function addBooksToShelf() {
 
         bookPages = document.createElement('p')
         bookPages.className = 'book-pages'
-        bookPages.innerText = `Pages: ${book.Pages}`
+        bookPages.innerText = `Pages: ${book.pages}`
         bookCard.appendChild(bookPages)
 
         bookReadContainer = document.createElement('span')
@@ -77,3 +77,15 @@ function addBooksToShelf() {
         bookReadContainer.appendChild(bookReadBtn)
     })
 }
+
+addBookBtn.addEventListener('click', function() {
+    addBookForm.style.display = 'flex' ;
+})
+
+addBookForm.addEventListener('submit', function(event){
+    event.preventDefault()
+    addBookForm.style.display = 'none' ;
+})
+
+
+
