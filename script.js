@@ -118,10 +118,16 @@ addBookForm.addEventListener('submit', function(event){
     let userPages = document.getElementById('pages').value;
     let userRead = document.querySelector('input[name="read-or-not"]:checked').value;
 
+    if (!userAuthor) {
+        userAuthor = "Unknown"; // set the default value
+    }
+    if (!userPages) {
+        userPages = "Unknown"; // set the default value
+    }
+
     let newBook = new Book(userTitle, userAuthor, userPages, userRead)
     library.push(newBook) ;
     addNewBookToSelf() ;
-
 })
 
 
