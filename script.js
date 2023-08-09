@@ -4,13 +4,12 @@ const bookShelf = document.getElementById('book-shelf')
 
 let library = [] ; 
 
-function Book(title, author, pages, read, indexNum) {
+function Book(title, author, pages, read) {
     this.title = title
     this.bookId = title
     this.author = author
     this.pages = pages
     this.read = read
-    this.indexNum = indexNum
 }
 
 let exampleBook = new Book("Example Title", "Mr.Author-Person", 300, true, 0)
@@ -28,7 +27,6 @@ addBookForm.addEventListener('submit', function(event){
     let userAuthor = document.getElementById('author').value;
     let userPages = document.getElementById('pages').value;
     let userRead = document.querySelector('input[name="read-or-not"]:checked').value;
-    let indexNum = library.length
 
     if (!userAuthor) {
         userAuthor = "Unknown"; // set the default value
@@ -37,16 +35,16 @@ addBookForm.addEventListener('submit', function(event){
         userPages = "Unknown"; // set the default value
     }
 
-    let newBook = new Book(userTitle, userAuthor, userPages, userRead, indexNum)
-    console.log(newBook)
+    let newBook = new Book(userTitle, userAuthor, userPages, userRead)
     library.push(newBook) ;
     addNewBookToShelf() ;
 })
 
-function addNewBookToShelf() {
-    let newBook = library[library.length - 1]
+function addNewBookToShelf() { 
+    let bookIndex = library.length - 1
+    let newBook = library[bookIndex]
     let bookCard = document.createElement('div')
-    bookCard.id = newBook.title
+    bookCard.bookIndex = bookIndex
     bookCard.className = 'book-card'
     bookShelf.appendChild(bookCard)
 
@@ -78,18 +76,19 @@ function addNewBookToShelf() {
     removeBookBtn = document.createElement('button')
     removeBookBtn.className = 'remove-book-btn'
     removeBookBtn.innerText = 'Remove'
-    removeBookBtn.bookIndex = newBook
+    removeBookBtn.bookIndex = bookIndex
     bookCard.appendChild(removeBookBtn)
 
     removeBookBtn.addEventListener('click', function(e) {
         const isConfirmed = confirm("Are you sure you want to delete this book from your list?");
-        console.log(e.target.bookIndex)
+        console.log('remove button clicked for index: ' + e.target.bookIndex)
         if (!isConfirmed) {
             e.preventDefault();  // Stop the action if user clicked "Cancel"
         } 
         else {
-            
-            }
+            document.querySelectorAll('.book-card')[bookIndex].remove() ;
+            library.splice(bookIndex, 1)
+        }
     })
 }
 
