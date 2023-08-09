@@ -38,14 +38,42 @@ function Book(title, author, pages, read) {
     this.read = read
 }
 
-function addBookToLibrary() {
+function addNewBookToSelf() {
+    let newBook = library[library.length - 1]
+    let bookCard = document.createElement('div')
+    bookCard.className = 'book-card'
+    bookShelf.appendChild(bookCard)
 
+    bookTitle = document.createElement('h1')
+    bookTitle.className = 'book-titles'
+    bookTitle.innerText = newBook.title
+    bookCard.appendChild(bookTitle)
+
+    bookAuthor = document.createElement('p')
+    bookAuthor.className = 'book-authors'
+    bookAuthor.innerText = `Author: ${newBook.author}`
+    bookCard.appendChild(bookAuthor)
+
+    bookPages = document.createElement('p')
+    bookPages.className = 'book-pages'
+    bookPages.innerText = `Pages: ${newBook.pages}`
+    bookCard.appendChild(bookPages)
+
+    bookReadContainer = document.createElement('span')
+    bookReadContainer.className = 'book-read-container'
+    bookReadContainer.innerText = "Read: "
+    bookCard.appendChild(bookReadContainer)
+
+    bookReadBtn = document.createElement('button')
+    bookReadBtn.className = 'book-read-btn'
+    bookReadBtn.innerText = newBook.read
+    bookReadContainer.appendChild(bookReadBtn)
 }
 
 let library = [book1, book2, book3, book4] ; 
 
 
-function addBooksToShelf() {
+function addAllBooksToShelf() {
     library.forEach(function(book) {
         let bookCard = document.createElement('div')
         bookCard.className = 'book-card'
@@ -85,6 +113,15 @@ addBookBtn.addEventListener('click', function() {
 addBookForm.addEventListener('submit', function(event){
     event.preventDefault()
     addBookForm.style.display = 'none' ;
+    let userTitle = document.getElementById('title').value;
+    let userAuthor = document.getElementById('author').value;
+    let userPages = document.getElementById('pages').value;
+    let userRead = document.querySelector('input[name="read-or-not"]:checked').value;
+
+    let newBook = new Book(userTitle, userAuthor, userPages, userRead)
+    library.push(newBook) ;
+    addNewBookToSelf() ;
+
 })
 
 
