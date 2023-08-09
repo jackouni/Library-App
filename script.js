@@ -81,13 +81,23 @@ function addNewBookToShelf() {
 
     removeBookBtn.addEventListener('click', function(e) {
         const isConfirmed = confirm("Are you sure you want to delete this book from your list?");
-        console.log('remove button clicked for index: ' + e.target.bookIndex)
+        console.log(`remove button clicked for index: [${e.target.bookIndex}]`)
         if (!isConfirmed) {
             e.preventDefault();  // Stop the action if user clicked "Cancel"
         } 
         else {
-            document.querySelectorAll('.book-card')[bookIndex].remove() ;
-            library.splice(bookIndex, 1)
+            let allBookCards = document.getElementsByClassName('book-card') ;
+            let allRemoveBookBtns = document.getElementsByClassName('remove-book-btn') ;
+            console.log(allRemoveBookBtns)
+            console.log(allBookCards)
+            for (let i = e.target.bookIndex + 1 ; i < library.length ; i++) {
+                allBookCards[i].bookIndex -= 1
+                allRemoveBookBtns[i].bookIndex -= 1
+            }
+            allBookCards[e.target.bookIndex].remove() ;
+            library.splice(e.target.bookIndex, 1)
+            console.log(allRemoveBookBtns)
+            console.log(allBookCards)
         }
     })
 }
