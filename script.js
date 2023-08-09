@@ -68,10 +68,23 @@ function addNewBookToShelf() {
     bookReadContainer.innerText = "Read: "
     bookCard.appendChild(bookReadContainer)
 
-    bookReadBtn = document.createElement('button')
-    bookReadBtn.className = 'book-read-btn' ;
+    bookReadBtn = document.createElement('button') ; 
+    bookReadBtn.classList.add('book-read-btn') ;
     bookReadBtn.innerText = newBook.read ;
-    bookReadContainer.appendChild(bookReadBtn)
+    bookReadContainer.appendChild(bookReadBtn) ; 
+
+    if (bookReadBtn.innerText === 'true') {
+        bookReadBtn.classList.add('read-true') ;
+    } ;
+
+    bookReadBtn.addEventListener('click', function(e) {
+        e.target.classList.toggle('read-true');
+        if (e.target.innerText === 'true') {
+            e.target.innerText = 'false';
+        } else {
+            e.target.innerText = 'true';
+        } ;
+    })
 
     removeBookBtn = document.createElement('button')
     removeBookBtn.className = 'remove-book-btn'
@@ -88,16 +101,12 @@ function addNewBookToShelf() {
         else {
             let allBookCards = document.getElementsByClassName('book-card') ;
             let allRemoveBookBtns = document.getElementsByClassName('remove-book-btn') ;
-            console.log(allRemoveBookBtns)
-            console.log(allBookCards)
             for (let i = e.target.bookIndex + 1 ; i < library.length ; i++) {
                 allBookCards[i].bookIndex -= 1
                 allRemoveBookBtns[i].bookIndex -= 1
             }
             allBookCards[e.target.bookIndex].remove() ;
             library.splice(e.target.bookIndex, 1)
-            console.log(allRemoveBookBtns)
-            console.log(allBookCards)
         }
     })
 }

@@ -122,6 +122,28 @@ form {
     border: double black 5px ;
 }
 
+.book-read-btn {
+    color: rgb(255, 0, 0);
+    background-color: azure;
+    border: solid rgba(255, 0, 0, 0.4) 2px;
+}
+
+.read-true {
+    color:green;
+
+    border: solid green 2px;
+    border-radius: 5px;
+}
+
+.remove-book-btn {
+    align-self: center;
+    color: rgb(255, 0, 0);
+    background-color: azure;
+    border: solid rgba(255, 0, 0, 0.4) 2px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
 
 
 
