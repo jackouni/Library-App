@@ -9,25 +9,34 @@
 </head>
 <body>
     <main>
-        <h1>Your Library</h1>
-        <button id="add-book">Add Book</button>
-        <div id="book-shelf"></div>
-        <form action="#" method="post">
-            <label for="title"><b>Title:</b></label>
-            <input type="text" name="title" id="title">
-            <label for="author"><b>Author:</b></label>
-            <input type="text" name="title" id="title">
-            <label for="pages"><b>Number of Pages:</b></label>
-            <input type="number" name="pages" id="pages" min="1">
+        <header id="header">
+            <h1>libro</h1>
+            <div id="img-container"><img src="book-icon.png" alt=""></div>
+        </header>
+
+        <section>
+            <button id="add-book">Add Book</button>
+            <div id="book-shelf"></div>
+            <form action="#" method="post">
+                <label for="title"><b>Title :</b></label>
+                <input type="text" name="title" id="title" required>
+                <label for="author"><b>Author :</b></label>
+                <input type="text" name="author" id="author" value="Unknown">
+                <label for="pages"><b>Number of Pages :</b></label>
+                <input type="number" name="pages" id="pages" min="1">
             
-            <div id="read-section"><b> Read? :</b>
-                <input type="radio" id="read-true" name="read-or-not" value="True">
-                <label for="read-true">True</label>
-                <input type="radio" id="read-false" name="read-or-not" value="False" checked>
-                <label for="read-false">False</label>
-            </div>
-            <button type="submit" id="submit-btn">Add to List</button>
-        </form>
+                <div id="read-section"><b> Read? :</b>
+                    <input type="radio" id="read-true" name="read-or-not" value="true" required>
+                    <label for="read-true">True</label>
+                    <input type="radio" id="read-false" name="read-or-not" value="false" checked>
+                    <label for="read-false">False</label>
+                </div>
+                <button type="submit" id="submit-btn">Add to List</button>
+            </form>
+        </section>
+        <footer>
+            
+        </footer>
     </main>
 </body>
 </html>
