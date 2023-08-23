@@ -4,15 +4,16 @@ const bookShelf = document.getElementById('book-shelf')
 
 let library = [] ; 
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title
-    this.bookId = title
     this.author = author
     this.pages = pages
     this.read = read
 }
+}
 
-let exampleBook = new Book("Example Title", "Mr.Author-Person", 300, true, 0)
+let exampleBook = new Book("Example Title", "Mr.Author-Person", 300, true)
 library.push(exampleBook)
 addNewBookToShelf()
 
