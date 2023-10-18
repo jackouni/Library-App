@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library App</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <main>
-        <header id="header">
-            <h1>libro</h1>
-            <div id="img-container"><img src="book-icon.png" alt=""></div>
-        </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Library App</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<main>
+			<header id="header">
+				<h1>libro</h1>
+				<div id="img-container"><img src="book-icon.png" alt="" /></div>
+			</header>
 
-        <section>
-            <button id="add-book">Add Book</button>
-            <div id="book-shelf"></div>
-            <form action="#" method="post">
-                <label for="title"><b>Title :</b></label>
-                <input type="text" name="title" id="title" required>
-                <label for="author"><b>Author :</b></label>
-                <input type="text" name="author" id="author" value="Unknown">
-                <label for="pages"><b>Number of Pages :</b></label>
-                <input type="number" name="pages" id="pages" min="1">
-            
-                <div id="read-section"><b> Read? :</b>
-                    <input type="radio" id="read-true" name="read-or-not" value="true" required>
-                    <label for="read-true">True</label>
-                    <input type="radio" id="read-false" name="read-or-not" value="false" checked>
-                    <label for="read-false">False</label>
-                </div>
-                <button type="submit" id="submit-btn">Add to List</button>
-            </form>
-        </section>
-        <footer>
-            
-        </footer>
-    </main>
-</body>
+			<section>
+				<button id="add-book">Add Book</button>
+				<div id="book-shelf"></div>
+				<form action="#" method="post" novalidate>
+					<label for="title"><b>Title :</b></label>
+					<input
+						type="text"
+						name="title"
+						id="title"
+						required
+						minlength="2"
+						maxlength="70"
+					/>
+					<small class="error-message" id="titleError"></small>
+
+					<label for="author"><b>Author :</b></label>
+					<input type="text" name="author" id="author" value="" />
+					<small class="error-message" id="authorError"></small>
+
+					<label for="pages"><b>Number of Pages :</b></label>
+					<input type="number" name="pages" id="pages" min="1" />
+					<small class="error-message" id="pagesError"></small>
+
+					<div id="read-section">
+						<b> Read? :</b>
+						<input
+							type="radio"
+							id="read-true"
+							name="read-or-not"
+							value="true"
+							required
+						/>
+						<label for="read-true">True</label>
+						<input
+							type="radio"
+							id="read-false"
+							name="read-or-not"
+							value="false"
+							checked
+						/>
+						<label for="read-false">False</label>
+					</div>
+					<button type="submit" id="submit-btn">Add to List</button>
+				</form>
+			</section>
+			<footer></footer>
+		</main>
+	</body>
 </html>
